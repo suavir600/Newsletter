@@ -1,50 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>📰 My Finance News Digest</title>
-    <style>
-        body {
-            font-family: system-ui, sans-serif;
-            margin: 2rem auto;
-            max-width: 700px;
-            line-height: 1.6;
-            padding: 0 1rem;
-        }
-        h1, h2 {
-            color: #222;
-        }
-        .subscribe-box {
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
-        .footer {
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: #666;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Finance News Digest — Subscribe</title>
+  <meta name="description" content="Get 5–7 bullet market digests and earnings highlights in your inbox." />
+  <style>
+    :root {
+      --bg:#ffffff; --fg:#111; --muted:#666; --accent:#2563eb;
+      --card:#f7f7f9; --border:#e7e7ee; --shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:#0b0c0f; --fg:#f1f5f9; --muted:#a5adba; --accent:#60a5fa;
+        --card:#11131a; --border:#1e2230; --shadow:0 10px 30px rgba(0,0,0,.45);
+      }
+    }
+    html,body{height:100%} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);}
+    .wrap{max-width:920px;margin:0 auto;padding:2rem 1rem 3rem}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+    .brand{display:flex;gap:.75rem;align-items:center;text-decoration:none;color:var(--fg)}
+    .logo{width:42px;height:42px;border-radius:12px;background:radial-gradient(120% 140% at 0% 0%,#6ee7b7 0%,#60a5fa 40%,#a78bfa 100%);box-shadow:var(--shadow)}
+    h1{font-size:clamp(1.1rem,1.4rem + .5vw,1.75rem);margin:0}
+    .nav a{text-decoration:none;color:var(--fg);border:1px solid var(--border);background:var(--card);padding:.5rem .8rem;border-radius:10px}
+    .hero{margin:1rem 0 1.5rem;padding:clamp(1rem,1.2rem + 1.2vw,2rem);border:1px solid var(--border);border-radius:18px;background:var(--card);box-shadow:var(--shadow)}
+    .hero h2{margin:.25rem 0 .25rem;font-size:clamp(1.25rem,1.1rem + 1.2vw,2rem)}
+    .hero p{margin:.35rem 0 0;color:var(--muted)}
+    .cta{margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap}
+    .btn{border:1px solid var(--border);background:var(--accent);color:#fff;padding:.7rem 1rem;border-radius:12px;font-weight:600;text-decoration:none;box-shadow:var(--shadow)}
+    .btn.secondary{background:transparent;color:var(--fg)}
+    iframe{width:100%;height:900px;border:0;border-radius:12px;background:#fff}
+    .fallback{margin-top:.85rem;font-size:.95rem;color:var(--muted)}
+    footer{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border);color:var(--muted);font-size:.9rem}
+  </style>
 </head>
 <body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="./"><div class="logo" aria-hidden="true"></div><h1>Finance News Digest</h1></a>
+      <nav class="nav"><a href="./articles/">Articles</a></nav>
+    </header>
 
-    <h1>📰 Welcome to My Finance News Digest</h1>
-    <p>Explore the latest articles <a href="articles/">here</a>.</p>
+    <section class="hero">
+      <h2>Market insights in 5–7 bullets.</h2>
+      <p>Concise digests of the day’s biggest moves, earnings calls, and macro headlines—straight to your inbox.</p>
+      <div class="cta">
+        <a class="btn" href="#subscribe">Subscribe</a>
+        <a class="btn secondary" href="./articles/">Browse recent articles</a>
+      </div>
+    </section>
 
-    <div class="subscribe-box">
-        <h2>📬 Subscribe to My Newsletter</h2>
-        <p>Get 5–7 bullet summaries of market news and earnings digests in your inbox.</p>
+    <section id="subscribe">
+      <h3>Subscribe to the newsletter</h3>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScwp44hvCz4DVf2htlqoDkQRd0lV45E34LfTPHrbLjbVTr_ZA/viewform?embedded=true" loading="lazy" title="Subscribe form">Loading…</iframe>
+      <p class="fallback">
+        If the form doesn’t load (blocked cookies or sign‑in), open it directly:
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScwp44hvCz4DVf2htlqoDkQRd0lV45E34LfTPHrbLjbVTr_ZA/viewform" target="_blank" rel="noopener">Open subscription form in a new tab</a>.
+      </p>
+    </section>
 
-        <!-- Paste your actual Google Form iframe below -->
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf_example_embed_code/viewform?embedded=true"
-                width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-    </div>
-
-    <div class="footer">
-        <p>Powered by <a href="https://github.com/suavir600">suavir600</a> | Hosted on GitHub Pages</p>
-    </div>
-
+    <footer>© <span id="y"></span> Finance News Digest · Built on GitHub Pages</footer>
+  </div>
+  <script>document.getElementById("y").textContent=new Date().getFullYear();</script>
 </body>
 </html>
